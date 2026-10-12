@@ -3,4 +3,4 @@
 // Additional attribution term: see LICENSE-ATTRIBUTION.
 
 // Shown beside the logo; bump the patch on every build installed on the console.
-export const VERSION = '0.2.2';
+export const VERSION = '0.2.3';
