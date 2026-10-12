@@ -8,6 +8,7 @@ import {clearAction} from '../downloads/labels.js';
 import {BUSY, COMPLETE, createDownloadQueue} from './download-queue.js';
 import {upgradeFixtures} from './fixtures/upgrade/fixtures.mjs';
 import {SAVED_FILES, isRecord, readJSON} from './read-json.js';
+import {createSourceResolver} from './download-sources.js';
 import {createUpdater} from './updater.js';
 
 // What each shipped version left on a console (native/state/fixtures/upgrade), loaded by this build's
@@ -41,7 +42,7 @@ const onConsole = files => Object.fromEntries(Object.entries(files).map(([path, 
 
 // The transfers never start: a job that resumes stays where the queue put it.
 const pending = () => new Promise(() => {});
-const queueOver = (fs, http = {request: pending}) => createDownloadQueue({fs, formats: {}, http, sources: {resolve: pending},
+const queueOver = (fs, http = {request: pending}, sources = {resolve: pending}) => createDownloadQueue({fs, formats: {}, http, sources,
   downloads: {enqueue: () => ({subscribe: () => () => {}, done: pending(), cancel() {}})},
   dataDir: DATA, stateDir: QUEUE, platform: 'ps5', notifications: {show: () => true}, power: {keepAwake() {}}, archives: {}});
 
@@ -152,4 +153,23 @@ test('0.1.4: X on an extracted game only takes it off the list, and Delete touch
   for (const path of deleting.removals) assert.ok(own.some(base => path === base || path.startsWith(`${base}/`)), path);
   assert.deepEqual(onDisk(deleting), Object.keys(disk).filter(path => !path.startsWith(`${ready.publishTo}/`)).sort());
   assert.ok(!JSON.parse(deleting.tree.get(`${QUEUE}/downloads.json`)).jobs.some(job => job.id === ready.id));
+});
+
+// Rootz and AkiraBox left the catalog after 0.1.4. Their saved jobs stay where they were, and the one
+// queued, which the app no longer reads, waits for a link from the browser instead of failing.
+test('0.1.4: downloads from hosts taken out of the catalog wait for the browser', async () => {
+  const {files} = upgradeFixtures().find(set => set.version === '0.1.4');
+  const gone = savedJobs(files).filter(job => /akirabox|rootz/.test(job.release.url));
+  assert.deepEqual(gone.map(job => job.state), ['queued', 'paused', 'paused']);
+  const fs = memoryFs({[`${QUEUE}/downloads.json`]: JSON.stringify({version: 1, jobs: gone})}, true);
+  const refuse = {request: async url => { throw new Error(`unexpected request to ${url}`); }};
+  const queue = quietly(() => queueOver(fs, refuse, createSourceResolver({http: refuse})));
+  const log = console.log;
+  console.log = quiet;
+  try { for (let tick = 0; tick < 50 && queue.snapshot()[0].state !== 'awaiting-browser'; tick++) await new Promise(setImmediate); }
+  finally { console.log = log; }
+  const [queued, ...paused] = queue.snapshot();
+  assert.equal(queued.state, 'awaiting-browser');
+  assert.equal(queued.browserUrl, gone[0].release.url);
+  assert.deepEqual(paused.map(job => [job.state, job.written]), gone.slice(1).map(job => ['paused', job.written]));
 });
