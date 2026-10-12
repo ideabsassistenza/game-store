@@ -39,7 +39,7 @@ catalog's `audits/ps5-direct-discovery/`.
 It then:
 
 - Leaves out sources on `DISABLED_HOSTS` in `scripts/sources.mjs` (Spectrum is
-  offline) and links the audit found gone (404/410, 401/403, a web page instead
+  offline; Rootz and AkiraBox are out of the store) and links the audit found gone (404/410, 401/403, a web page instead
   of a file), and every volume of a set the part audit found cut short. A game
   left with no source is dropped everywhere, the landing
   included. Add a host to that list to switch it off.

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Take every Rootz and AkiraBox source out of the catalog, however a feed spells
+  or wraps the link, so a re-import cannot bring them back. A game left with no
+  other source leaves the store. A download of theirs saved by an earlier
+  version opens in the browser.
 - Delete partials, archives, extracted games and the update's leftovers off the
   render thread, so Cancel, Restart, Delete from disk and Files no longer freeze
   the screen for seconds on a large file. A task reads Deleting files until its

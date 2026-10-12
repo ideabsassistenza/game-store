@@ -6,12 +6,15 @@
 // not in the picker, the counts, the host filter or failover. A game left with none is dropped.
 
 /**
- * Hosts that are off, by the provider key the catalog's host filter uses, with the domain their links
- * point at. Add a host here to take every one of its sources out of the next build.
+ * Hosts that are off, by the provider key the catalog's host filter uses, with the domains their links
+ * point at. Add a host here to take every one of its sources out of the next build, a re-import's included.
  */
 export const DISABLED_HOSTS = {
   // Offline: every manifest answered 403 in the 2026-10-07 audit.
-  spectrum: 'spectrumlibrary.online',
+  spectrum: ['spectrumlibrary.online'],
+  // Taken out of the store by its owner on 2026-10-12.
+  rootz: ['rootz.so'],
+  akirabox: ['akirabox.com', 'akirabox.to'],
 };
 
 // Links that open a page asking for a password the catalog does not have: both of Pippo's pages,
@@ -41,8 +44,12 @@ export function sourceRules(audit = [], sets = []) {
   // By game and link: the feed puts one link in sets of different games, which the audit judges apart.
   const setVerdicts = new Map(sets.flatMap(set => set.parts.map(part => [`${set.gameId}\n${part.url}`, set.verdict])));
   const setVerdict = (release, gameId, verdict) => links(release).some(url => setVerdicts.get(`${gameId}\n${url}`) === verdict);
-  const disabled = ([key, domain]) => release => providerKey(release.provider || '') === key
-    || links(release).some(url => { const host = hostOf(url); return host === domain || host.endsWith(`.${domain}`); });
+  // A link-locker page names the host it opens in its fragment ("links.example.com/c/AbCd1234#AkiraBox").
+  const disabled = ([key, domains]) => release => providerKey(release.provider || '') === key
+    || links(release).some(url => {
+      const host = hostOf(url);
+      return providerKey(url.split('#')[1] || '') === key || domains.some(domain => host === domain || host.endsWith(`.${domain}`));
+    });
   const off = Object.entries(DISABLED_HOSTS).map(disabled);
   return {
     why: (release, gameId) => off.some(test => test(release)) ? 'host'

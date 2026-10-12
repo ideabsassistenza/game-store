@@ -11,8 +11,7 @@ export function webURL(value) {
 }
 const hosts = {
   mediafire: ['mediafire.com'], buzzheavier: ['buzzheavier.com'],
-  vikingfile: ['vikingfile.com', 'vik1ngfile.site'], akirabox: ['akirabox.com', 'akirabox.to'],
-  datanodes: ['datanodes.to'],
+  vikingfile: ['vikingfile.com', 'vik1ngfile.site'], datanodes: ['datanodes.to'],
 };
 const isHost = (host, domain) => host === domain || host.endsWith(`.${domain}`);
 export function sourceKind(release) {
@@ -87,7 +86,6 @@ export function createSourceResolver({http}) {
     let candidate;
     if (kind === 'mediafire') candidate = anchor(html, 'downloadButton');
     if (kind === 'vikingfile') candidate = anchor(html, 'download-link');
-    if (kind === 'akirabox') candidate = anchor(html, 'download-button');
     if (kind === 'buzzheavier') {
       const button = (html.match(/<[a-z]+\b[^>]*>/gi) || []).find(tag => attribute(tag, 'hx-get')?.includes('/download'));
       const route = button && attribute(button, 'hx-get');

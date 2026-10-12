@@ -17,7 +17,26 @@ test('a disabled host is left out by its name or by the domain of its links', ()
   const {why} = sourceRules(audit);
   assert.equal(why({provider: 'Spectrum', manifestUrl: 'https://example.com/m.json'}), 'host');
   assert.equal(why({provider: 'Mirror', url: 'https://api.spectrumlibrary.online/dl?url=x'}), 'host');
-  assert.equal(why({provider: 'AkiraBox', url: 'https://akirabox.com/abc/file'}), null);
+});
+
+test('Rootz and AkiraBox are off however a feed spells or wraps them, and other hosts stay', () => {
+  const {why} = sourceRules(audit);
+  for (const release of [
+    {provider: 'www.rootz.so', url: 'https://www.rootz.so/d/a'},
+    {provider: 'rootz.so', url: 'https://rootz.so/d/a'},
+    {provider: 'Rootz', browserUrl: 'https://example.com/a'},
+    {provider: 'AkiraBox', url: 'https://akirabox.com/abc/file'},
+    {provider: 'akirabox.to', url: 'https://akirabox.to/abc/file'},
+    {provider: 'example.com', url: 'https://cdn.akirabox.to/abc/file'},
+    {provider: 'links.example.com', url: 'https://links.example.com/c/AbCd1234#AkiraBox'},
+  ]) assert.equal(why(release), 'host', JSON.stringify(release));
+  for (const release of [
+    {provider: 'VikingFile', url: 'https://vikingfile.com/f/abc'},
+    {provider: 'MediaFire', url: 'https://www.mediafire.com/file/abc'},
+    {provider: 'links.example.com', url: 'https://links.example.com/c/AbCd1234#VikingFile'},
+    {provider: 'example.com', url: 'https://notakirabox.com/abc/file'},
+    {provider: 'example.com', url: 'https://rootz.so.example.com/d/a'},
+  ]) assert.equal(why(release), null, JSON.stringify(release));
 });
 
 test('only links the audit found gone are dead; a server error is not proof', () => {
@@ -41,13 +60,13 @@ test('a kept link carries the audit health that ranks it', () => {
 });
 
 test('every volume of a set the part audit found cut short is left out, and the game keeps its other sets', () => {
-  const part = number => ({provider: 'Rootz', url: `https://www.rootz.so/d/w${number}`, label: `USA 13.xx Base - Rootz part ${number}`});
+  const part = number => ({provider: '1fichier.com', url: `https://1fichier.com/?w${number}`, label: `USA 13.xx Base - 1fichier part ${number}`});
   const {why} = sourceRules(audit, [
     {gameId: 'PPSA03671', verdict: 'incomplete', reason: 'count', parts: [1, 2].map(number => ({number, url: part(number).url}))},
-    {gameId: 'PPSA03671', verdict: 'ok', parts: [{number: 1, url: 'https://akirabox.com/a/file'}]},
+    {gameId: 'PPSA03671', verdict: 'ok', parts: [{number: 1, url: 'https://www.mediafire.com/file/a'}]},
   ]);
   assert.deepEqual([1, 2].map(number => why(part(number), 'PPSA03671')), ['incomplete', 'incomplete']);
-  assert.equal(why({provider: 'AkiraBox', url: 'https://akirabox.com/a/file'}, 'PPSA03671'), null);
+  assert.equal(why({provider: 'MediaFire', url: 'https://www.mediafire.com/file/a'}, 'PPSA03671'), null);
 });
 
 test('a set with a volume its host answered 404 twice is dead, every volume of it', () => {
@@ -58,17 +77,17 @@ test('a set with a volume its host answered 404 twice is dead, every volume of i
 test('a link in sets of two games takes each set its own verdict', () => {
   const set = (gameId, verdict, ids) => ({gameId, verdict, parts: ids.map((id, index) => ({number: index+1, url: `https://${id}`}))});
   const {why} = sourceRules(audit, [
-    // Forza Horizon 5's Rootz set holds a volume of Khazan's, whose own set is whole.
-    set('PPSA22327', 'incomplete', ['rootz.so/d/f1', 'rootz.so/d/k3', 'rootz.so/d/f3']),
-    set('PPSA20447', 'ok', ['rootz.so/d/k1', 'rootz.so/d/k2', 'rootz.so/d/k3']),
+    // Forza Horizon 5's 1fichier set holds a volume of Khazan's, whose own set is whole.
+    set('PPSA22327', 'incomplete', ['1fichier.com/?f1', '1fichier.com/?k3', '1fichier.com/?f3']),
+    set('PPSA20447', 'ok', ['1fichier.com/?k1', '1fichier.com/?k2', '1fichier.com/?k3']),
     // The Last of Us Part I's set is whole; two other games' sets with the same volume lost another one.
     set('PPSA10662', 'gone', ['vikingfile.com/f/a1', 'vikingfile.com/f/50mhr9mMmZ', 'vikingfile.com/f/a3']),
     set('PPSA03396', 'ok', ['vikingfile.com/f/t1', 'vikingfile.com/f/50mhr9mMmZ', 'vikingfile.com/f/t3']),
     set('PPSA05684', 'gone', ['vikingfile.com/f/b1', 'vikingfile.com/f/b2', 'vikingfile.com/f/50mhr9mMmZ']),
   ]);
   const release = id => ({provider: 'x', url: `https://${id}`});
-  assert.equal(why(release('rootz.so/d/k3'), 'PPSA22327'), 'incomplete');
-  assert.equal(why(release('rootz.so/d/k3'), 'PPSA20447'), null);
+  assert.equal(why(release('1fichier.com/?k3'), 'PPSA22327'), 'incomplete');
+  assert.equal(why(release('1fichier.com/?k3'), 'PPSA20447'), null);
   assert.equal(why(release('vikingfile.com/f/50mhr9mMmZ'), 'PPSA03396'), null);
   assert.equal(why(release('vikingfile.com/f/50mhr9mMmZ'), 'PPSA10662'), 'dead');
 });

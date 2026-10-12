@@ -111,7 +111,7 @@ export function showcase(list, count) {
 
 // Hosts named as their sites write them; any other key reads as itself.
 const HOST_NAMES = {
-  'overdrive cdn': 'Overdrive CDN', akirabox: 'AkiraBox', vikingfile: 'VikingFile', 'archive.org': 'Archive.org', '1fichier': '1fichier', rootz: 'Rootz',
+  'overdrive cdn': 'Overdrive CDN', vikingfile: 'VikingFile', 'archive.org': 'Archive.org', '1fichier': '1fichier',
   'pippo26442999.github': 'Pippo mirror', datanodes: 'DataNodes', mediafire: 'MediaFire', filekeeper: 'FileKeeper',
   datavaults: 'DataVaults', spectrum: 'Spectrum', buzzheavier: 'Buzzheavier', gofile: 'Gofile', rapidgator: 'Rapidgator',
   filecrypt: 'Filecrypt', fileditchfiles: 'FileDitch', ranoz: 'Ranoz', transfer: 'Transfer.it',

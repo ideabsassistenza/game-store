@@ -20,10 +20,10 @@ function edition({label, provider}) {
   return provider.toLowerCase().startsWith(edition.toLowerCase()) ? '' : edition;
 }
 
-// Hosts whose page hides the file link behind a CAPTCHA (Cloudflare Turnstile on AkiraBox and
-// VikingFile, a Cloudflare challenge on Buzzheavier, checked 2026-10-08): the app reads their page,
+// Hosts whose page hides the file link behind a CAPTCHA (Cloudflare Turnstile on VikingFile, a
+// Cloudflare challenge on Buzzheavier, checked 2026-10-08): the app reads their page,
 // finds no link and asks for one, so they rank with the hosts that need a browser.
-const GATED = new Set(['akirabox', 'vikingfile', 'buzzheavier']);
+const GATED = new Set(['vikingfile', 'buzzheavier']);
 
 // How the app reaches the file: 'direct' links download as they are, a known host's page is read for
 // its file link ('page'), and anything else needs a person in a web browser. A set goes the way of its
