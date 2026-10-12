@@ -12,14 +12,14 @@ test('provider classification does not match lookalike domains or execute non-HT
   assert.equal(sourceKind({url: 'https://vikingfile.com/d/id/file'}), 'direct');
   assert.equal(sourceKind({url: 'https://vikingfile.com.evil.test/f/id'}), 'direct');
   assert.equal(sourceKind({url: 'https://host.example/f/id', source: 'pegasus-0'}), 'browser');
-  // akirabox.com now redirects to akirabox.to, which the feeds also link directly.
-  assert.equal(sourceKind({url: 'https://akirabox.to/id/file', requiresBrowser: true, source: 'pegasus-0'}), 'akirabox');
+  // AkiraBox left the catalog: a download saved from an earlier version opens in the browser.
+  assert.equal(sourceKind({url: 'https://akirabox.to/id/file', requiresBrowser: true, source: 'pegasus-0'}), 'browser');
   for (const url of ['file:///etc/passwd', 'https://user:secret@example.com/a', 'https://example.com/\nfoo', 'https://example.com/\\foo'])
     assert.throws(() => webURL(url));
 });
 
-test('MediaFire, Viking and Akira parse only their designated download anchor, preserving URL case/query', async () => {
-  for (const [url, id] of [['https://mediafire.com/file/x', 'downloadButton'], ['https://vikingfile.com/f/x', 'download-link'], ['https://akirabox.com/x', 'download-button']]) {
+test('MediaFire and Viking parse only their designated download anchor, preserving URL case/query', async () => {
+  for (const [url, id] of [['https://mediafire.com/file/x', 'downloadButton'], ['https://vikingfile.com/f/x', 'download-link']]) {
     const calls = [];
     const resolver = createSourceResolver({http: {request: async (url, options) => {
       calls.push({url, options});

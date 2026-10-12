@@ -31,18 +31,20 @@ one does not convert it into the other. Typed releases route by filename; only
 ## Catalog imports
 
 `scripts/import-downloads.mjs` imports Orbit, Spectrum and repeated Pegasus
-feeds. Spectrum is offline, so `prepare.mjs` leaves its sources out of the app
-(`DISABLED_HOSTS` in `scripts/sources.mjs`), with every link the audit found
-gone. Display metadata merges by title ID/category; provider labels, individual
+feeds. Spectrum is offline, and Rootz and AkiraBox were taken out on 2026-10-12,
+so `prepare.mjs` leaves their sources out of the app (`DISABLED_HOSTS` in
+`scripts/sources.mjs`: by provider, link domain, or a link-locker page naming
+the host in its fragment), with every link the audit found gone. Display
+metadata merges by title ID/category; provider labels, individual
 file URLs, checksums and archive-volume labels remain attached to each release.
 Numbered volumes from the same record/provider/variant become one queue job; a
-provider spelled two ways ("www.rootz.so", "rootz.so") is one provider.
+provider spelled two ways ("www.mediafire.com", "mediafire.com") is one provider.
 A repeated part-one sequence starts a separate set; distinct links are never
 assumed to be interchangeable mirrors. Missing or ambiguous volume numbers block
 submission, as does a link that names another volume than its label.
 The feed often lists a set without its last volumes, or from its second:
 `scripts/audit-parts.mjs` reads each set's volume names and sizes from the host
-pages (VikingFile, AkiraBox, Rootz, 1fichier, MediaFire) into
+pages (VikingFile, 1fichier, MediaFire) into
 the catalog's `audits/part-audit/results.json`, and `prepare.mjs` leaves out a set whose
 last volume is as large as its first (unless the set reaches the game's size),
 whose files are other volumes than their labels say, or with a volume its host
@@ -81,7 +83,7 @@ art caches and per-game resource data are not committed.
 | --- | --- |
 | Direct public file | Native range/sequential transport, checksum/size checks and owned-file recovery |
 | Spectrum raw-byte manifest | Validates contiguous offsets/count/size, downloads pieces and verifies available hashes |
-| MediaFire / VikingFile / AkiraBox public page | Reads only the designated download anchor, checks its final URL with HEAD, then downloads natively. Since 2026-10-08 only MediaFire serves the anchor; AkiraBox and VikingFile gate it behind Turnstile, so they rank with browser sources |
+| MediaFire / VikingFile public page | Reads only the designated download anchor, checks its final URL with HEAD, then downloads natively. Since 2026-10-08 only MediaFire serves the anchor; VikingFile gates it behind Turnstile, so it ranks with browser sources |
 | Buzzheavier public page | Uses the page's download action and HX-Redirect, then checks the final URL; no HX headers reach the file host |
 | Human verification, unsupported provider or DataNodes page | Persists `awaiting-browser`, opens the source on request and accepts a manually entered final public file URL |
 | Missing / removed file | Remains unavailable or reports HTTP 404/410 with an alternate-source action |

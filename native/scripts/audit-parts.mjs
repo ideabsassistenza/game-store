@@ -30,9 +30,6 @@ export const PAGES = {
       return {name: filename, bytes: displaySize && bytesOf([, displaySize.value, displaySize.unit])};
     } catch { return {}; }
   },
-  akirabox: html => ({name: /<meta property="og:title" content="([^"]*)"/.exec(html)?.[1],
-    bytes: bytesOf(new RegExp(`content="\\w+ file · ${SIZE}`).exec(html))}),
-  rootz: html => ({name: /<title>([^<]*)<\/title>/.exec(html)?.[1]}),
   '1fichier': html => ({name: /class="tier-name">([^<]*)/.exec(html)?.[1], bytes: bytesOf(new RegExp(`class="tier-feat">${SIZE}<`).exec(html), 1000)}),
   mediafire: html => ({name: /class="filename">([^<]*)/.exec(html)?.[1], bytes: bytesOf(new RegExp(`Download \\(${SIZE}\\)`).exec(html))}),
 };

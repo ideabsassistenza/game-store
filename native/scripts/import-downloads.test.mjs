@@ -67,8 +67,8 @@ test('Pegasus imports repeated feeds, preserves artwork and gives each volume a 
   const second = input + '.second';
   writeFileSync(input, JSON.stringify({packages: [{...direct, format: undefined, filename: undefined,
     url: undefined, cover: undefined, posterUrl: 'https://example.com/art.jpg', backgroundUrl: 'https://example.com/hero.jpg',
-    downloadLinks: [{name: 'USA exFAT - Akirabox part1', url: 'https://akirabox.com/a'},
-      {name: 'USA exFAT - Akirabox part2', url: 'https://akirabox.com/b'}]}]}));
+    downloadLinks: [{name: 'USA exFAT - Vikingfile part1', url: 'https://vikingfile.com/f/a'},
+      {name: 'USA exFAT - Vikingfile part2', url: 'https://vikingfile.com/f/b'}]}]}));
   writeFileSync(second, JSON.stringify({packages: [{...direct, url: 'https://archive.org/download/test/app.ffpfsc'}]}));
   execFileSync(process.execPath, [script, '--pegasus', input, '--pegasus', second, '--output', output]);
   const [game] = JSON.parse(readFileSync(output, 'utf8').split('export const downloadCatalog = ')[1].trim().replace(/;$/, ''));
@@ -77,6 +77,6 @@ test('Pegasus imports repeated feeds, preserves artwork and gives each volume a 
   assert.equal(game.images.hero, 'https://example.com/hero.jpg');
   assert.equal(new Set(game.releases.map(release => release.filename)).size, 3);
   assert.equal(game.releases[0].volume, 'part1');
-  assert.equal(game.releases[0].flow, 'akirabox');
+  assert.equal(game.releases[0].flow, 'vikingfile');
   assert.equal(game.releases[2].flow, 'direct');
 }));

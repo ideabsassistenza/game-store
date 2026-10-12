@@ -14,7 +14,7 @@ function stableKey(value) {
   }
   return `${(first >>> 0).toString(16)}${(second >>> 0).toString(16)}`;
 }
-// One feed spells a host several ways within a set ("www.rootz.so", "rootz.so").
+// One feed spells a host several ways within a set ("www.mediafire.com", "mediafire.com").
 const hostKey = provider => provider.toLowerCase().replace(/^www\./, '').replace(/\.[a-z]+$/, '');
 const VOLUME_NAME = /\bpart(\d+)\.(?:rar|7z|zip)\b/i;
 

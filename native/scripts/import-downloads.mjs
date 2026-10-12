@@ -70,7 +70,7 @@ function add(record, source, index) {
     game.releases.push({id: `${source}-${index}-${linkIndex}`, format, filename, manifestUrl,
       url: manifestUrl ? undefined : url, browserUrl, requiresBrowser, sizeBytes: volume ? null : record.sizeBytes || null,
       sha256: volume ? undefined : record.sha256 || undefined, version: record.version || '', category,
-      provider: record.provider || ({mediafire: 'MediaFire', buzzheavier: 'Buzzheavier', vikingfile: 'VikingFile', akirabox: 'AkiraBox', datanodes: 'DataNodes'}[kind] ?? (source === 'spectrum' ? 'Spectrum' : source === 'orbit' ? 'Orbit' : webURL(url).host)), source, flow: kind, label,
+      provider: record.provider || ({mediafire: 'MediaFire', buzzheavier: 'Buzzheavier', vikingfile: 'VikingFile', datanodes: 'DataNodes'}[kind] ?? (source === 'spectrum' ? 'Spectrum' : source === 'orbit' ? 'Orbit' : webURL(url).host)), source, flow: kind, label,
       // Archive volumes remain individual files; never concatenate them as raw-byte manifests.
       volume, ...(archivePassword ? {archivePassword} : {})});
   }

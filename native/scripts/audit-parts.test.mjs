@@ -11,9 +11,6 @@ const name = '[fixture-password]-PPSA03671.part09.rar';
 
 test('each host page gives the volume name and, where shown, its size', () => {
   assert.deepEqual(PAGES.vikingfile(`<div id="filename">${name}</div><div id="size">9.90 GB</div>`), {name, bytes: Math.round(9.9 * GB)});
-  assert.deepEqual(PAGES.akirabox(`<meta property="og:title" content="${name}"/><meta name="description" content="RAR file · 9.90 GB — download it free on AkiraBox."/>`),
-    {name, bytes: Math.round(9.9 * GB)});
-  assert.deepEqual(PAGES.rootz(`<title>${name}</title>`), {name});
   assert.deepEqual(PAGES['1fichier'](`<span class="tier-name">${name}</span>\n<span class="tier-feat">10.63 GB</span>`), {name, bytes: 10.63e9});
   assert.deepEqual(PAGES.mediafire(`<div class="filename">${name}</div><a>Download (9.9GB)</a>`), {name, bytes: Math.round(9.9 * GB)});
   assert.deepEqual(PAGES.vikingfile('<title>File not found</title>'), {});

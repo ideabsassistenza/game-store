@@ -30,7 +30,6 @@ test('a host the app can read downloads in the app despite the catalog browser f
 });
 
 test('a host that hides its file link behind a CAPTCHA needs a browser', () => {
-  assert.equal(describeSource(akira).group, 'browser');
   assert.equal(describeSource({...gofile, provider: 'VikingFile', url: 'https://vikingfile.com/f/x'}).group, 'browser');
   assert.equal(describeSource({...gofile, provider: 'Buzzheavier', url: 'https://buzzheavier.com/x'}).group, 'browser');
 });
