@@ -38,7 +38,7 @@ the host in its fragment), with every link the audit found gone. Display
 metadata merges by title ID/category; provider labels, individual
 file URLs, checksums and archive-volume labels remain attached to each release.
 Numbered volumes from the same record/provider/variant become one queue job; a
-provider spelled two ways ("www.rootz.so", "rootz.so") is one provider.
+provider spelled two ways ("www.mediafire.com", "mediafire.com") is one provider.
 A repeated part-one sequence starts a separate set; distinct links are never
 assumed to be interchangeable mirrors. Missing or ambiguous volume numbers block
 submission, as does a link that names another volume than its label.
