@@ -1,0 +1,38 @@
+{
+  "ageLevel": {
+    "default": 0
+  },
+  "applicationCategoryType": 65536,
+  "applicationDrmType": "free",
+  "attribute": 0,
+  "attribute2": 0,
+  "attribute3": 0,
+  "conceptId": "99999",
+  "contentBadgeType": 1,
+  "contentId": "UP9000-OVRD00013_00-OVERDRIVE0000000",
+  "contentVersion": "01.000.000",
+  "deeplinkUri": "https://document-tvs-pointer-impose.trycloudflare.com/",
+  "downloadDataSize": 0,
+  "gameIntent": {
+    "permittedIntents": [
+      {
+        "intentType": "launchActivity"
+      }
+    ]
+  },
+  "localizedParameters": {
+    "defaultLanguage": "en-US",
+    "en-US": {
+      "titleName": "Overdrive"
+    }
+  },
+  "masterVersion": "01.00",
+  "pubtools": {
+    "creationDate": "2026-10-04 00:00:00",
+    "toolVersion": "2.00"
+  },
+  "requiredSystemSoftwareVersion": "0x0000000000000000",
+  "sdkVersion": "0x0000000000000000",
+  "titleId": "OVRD00013",
+  "versionFileUri": ""
+}

@@ -1,0 +1,98 @@
+{
+  "Metadata": {
+    "title": "Overdrive：PS5 的游戏库",
+    "description": "Overdrive 是在主机上运行的 PS5 自制软件：一个您可以用手柄浏览的游戏库，具有系统商店的焦点、艺术风格和节奏。查看 PS4 和 PS5 目录及其安装方式。",
+    "ogAlt": "Overdrive 在黑暗房间的电视上的主屏幕，旁边是\"像在 PS5 上一样浏览的游戏库。\"的文字"
+  },
+  "Nav": {
+    "sections": "分类",
+    "footer": "页脚",
+    "tour": "导览",
+    "library": "游戏库",
+    "install": "安装",
+    "backToTop": "返回顶部",
+    "home": "Overdrive 主页",
+    "homeFooter": "Overdrive，返回顶部",
+    "language": "语言"
+  },
+  "Hero": {
+    "title": "像在 PS5 上一样浏览的游戏库。",
+    "lede": "Overdrive 是在主机上运行的自制软件。用手柄在库中移动，具有系统商店的焦点、艺术风格和节奏。",
+    "install": "如何安装",
+    "library": "完整库",
+    "shotAlt": "Overdrive 在电视上的主屏幕：Days Gone 在聚光灯下，旁边有五个精选游戏，下方是\"现在热门\"。"
+  },
+  "Tour": {
+    "label": "导览",
+    "homeTitle": "主屏幕正在运行。",
+    "homeBody": "五个精选游戏每七秒轮流出现，如同在主机上一样。指向其中一个来固定它。",
+    "gridTitle": "六个一行，速度由您控制摇杆。",
+    "gridBody": "游戏封面在焦点前加载，获取后保留在主机上，所以在库中返回是即时的。",
+    "gridAlt": "主机上的游戏库网格：一张卡片处于焦点，封面上有 PS5 标签。",
+    "filtersTitle": "每个过滤器都说明它会找到什么。",
+    "filtersBody": "平台、类型、功能、发布、大小。每个选项显示它会留下多少游戏，那些会留下零个游戏的选项会隐藏。",
+    "filtersAlt": "筛选面板：PS5 和 PS4 方块及其数量、类型标签，已选 RPG，益智和格斗因为 0 款而变暗。",
+    "pageTitle": "每个游戏一个页面。",
+    "pageBody": "艺术、详情和截图，每个都可以按下全屏显示。",
+    "pageAlt": "电视上 Cyberpunk 2077 的页面：库中打开的截图，其缩略图下方和详情旁边。"
+  },
+  "Spotlight": {
+    "view": "查看游戏",
+    "favorite": "添加到收藏夹",
+    "featured": "精选"
+  },
+  "Library": {
+    "title": "游戏库",
+    "count": "{total, plural, other {# 款游戏}}",
+    "filteredCount": "{shown, number} / {total, plural, other {# 款游戏}}",
+    "search": "搜索",
+    "searchLabel": "按标题搜索",
+    "platform": "平台",
+    "all": "全部",
+    "genre": "类型",
+    "clear": "清除",
+    "empty": "没有匹配的标题。清除过滤器以查看更多。",
+    "loading": "正在加载库…",
+    "more": "再显示 {count, number} 款",
+    "card": "{title}，{platforms}"
+  },
+  "Genres": {
+    "Action": "动作",
+    "Adventure": "冒险",
+    "RPG": "RPG",
+    "Shooter": "射击",
+    "Racing": "赛车",
+    "Horror": "恐怖",
+    "Simulation": "模拟",
+    "Strategy": "策略",
+    "Sport": "体育",
+    "Sports": "运动",
+    "Indie": "独立",
+    "Fighting": "格斗",
+    "Puzzle": "拼图",
+    "Casual": "休闲",
+    "Family": "家庭",
+    "Party": "聚会",
+    "Arcade": "街机",
+    "MusicRhythm": "音乐/节奏",
+    "BrainTraining": "脑力训练",
+    "Educational": "教育",
+    "BoardGame": "棋盘游戏",
+    "Quiz": "测验"
+  },
+  "Install": {
+    "title": "三步安装。",
+    "lede": "一旦 Overdrive 在主机上，它就像其他任何 PS5 应用一样：之后房间里不需要电脑。",
+    "step1Title": "启动自制软件会话",
+    "step1Detail": "运行自制软件加载程序的 PS5，有一个 ELF 加载程序监听有效载荷。",
+    "step2Title": "将应用复制到主机",
+    "step2Detail": "将 Overdrive 文件夹放在这里：",
+    "step3Title": "使用 ShadowMountPlus 注册",
+    "step3Detail": "Overdrive 然后像任何游戏一样显示在主屏幕上。",
+    "copy": "复制",
+    "copied": "已复制"
+  },
+  "Footer": {
+    "disclaimer": "个人自制软件项目。不隶属于或未得到 Sony Interactive Entertainment 的认可。PlayStation、PS4 和 PS5 是其所有者的商标；游戏艺术属于其发行商。"
+  }
+}

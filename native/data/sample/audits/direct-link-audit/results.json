@@ -1,0 +1,5 @@
+[
+{"gameId":"PPSA90001","title":"Example Racer","releaseId":"orbit-0-0","provider":"example.com","url":"https://example.com/files/PPSA90001%20Example%20Racer.ffpfsc","checkedAt":"2026-10-07T00:00:00+00:00","httpStatus":200,"method":"HEAD","verdict":"reachable","action":"preserved"},
+{"gameId":"PPSA90004","title":"Example Tactics","releaseId":"orbit-0-5","provider":"example.com","url":"https://example.com/files/gone/PPSA90004.exfat","checkedAt":"2026-10-07T00:00:00+00:00","httpStatus":404,"method":"HEAD","verdict":"invalid","action":"removed"},
+{"gameId":"PPSA90008","title":"Example Lost","releaseId":"orbit-0-8","provider":"example.com","url":"https://example.com/files/gone/PPSA90008.ffpfsc","checkedAt":"2026-10-07T00:00:00+00:00","httpStatus":404,"method":"HEAD","verdict":"invalid","action":"removed"}
+]

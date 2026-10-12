@@ -1,0 +1,36 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# PS5: pacotes e enchimento gerados (o LEIA-ME explica como recriar)
+web/dist-ps5
+web/ps5/pkg
+web/ps5/src/*/padding.bin
+web/ps5/src/*/web
+.impeccable
+native/.art/
+native/data/catalog.js
+
+# Local builds and experiments, hundreds of MB
+experiments/

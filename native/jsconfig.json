@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@ps5-react/core": ["../../../ps5-react/runtime/js/index.js"],
+      "embedded-react": ["../../../ps5-react/.deps/embeddedReact/bridges/quickjs/js/src/embedded-react/index.d.ts"]
+    },
+    "typeRoots": ["../../../ps5-react/node_modules/@types"]
+  },
+  "include": ["**/*.js", "**/*.jsx", "../../../ps5-react/runtime/js/**/*.d.ts"],
+  "exclude": [".art", "data/catalog.js"]
+}

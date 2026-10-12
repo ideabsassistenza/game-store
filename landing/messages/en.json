@@ -1,0 +1,98 @@
+{
+  "Metadata": {
+    "title": "Overdrive: a game library for the PS5",
+    "description": "Overdrive is PS5 homebrew that runs on the console itself: a game library you browse with the controller, with the focus, art and pace of the system store. See the PS4 and PS5 catalog and how to install it.",
+    "ogAlt": "Overdrive's home screen on a TV in a dark room, beside the line \"A game library, browsed the way your PS5 does.\""
+  },
+  "Nav": {
+    "sections": "Sections",
+    "footer": "Footer",
+    "tour": "Tour",
+    "library": "Library",
+    "install": "Install",
+    "backToTop": "Back to top",
+    "home": "Overdrive home",
+    "homeFooter": "Overdrive, back to top",
+    "language": "Language"
+  },
+  "Hero": {
+    "title": "A game library, browsed the way your PS5 does.",
+    "lede": "Overdrive is homebrew that runs on the console itself. Move through the library with the controller, with the focus, art and pace of the system store.",
+    "install": "How to install",
+    "library": "The full library",
+    "shotAlt": "Overdrive's home screen on the TV: Days Gone in the spotlight, five featured games beside it, Popular now below."
+  },
+  "Tour": {
+    "label": "Tour",
+    "homeTitle": "The home screen, running.",
+    "homeBody": "Five picks take turns every seven seconds, as they do on the console. Point at one to hold it there.",
+    "gridTitle": "Six to a row, as fast as you hold the stick.",
+    "gridBody": "Covers load ahead of the focus and stay on the console once fetched, so going back through the library is instant.",
+    "gridAlt": "The library grid on the console: a card in focus, its PS5 tag on the cover.",
+    "filtersTitle": "Every filter says what it will find.",
+    "filtersBody": "Platform, genre, features, release, size. Each option shows how many games it leaves, and the ones that would leave none step out of the way.",
+    "filtersAlt": "The filters panel: PS5 and PS4 tiles with their counts, genre pills, RPG picked, Puzzle and Fighting dimmed at zero.",
+    "pageTitle": "A page for every game.",
+    "pageBody": "Art, details and screenshots, each one full screen with a press.",
+    "pageAlt": "Cyberpunk 2077's page on the TV: a screenshot open in the gallery, its thumbnails below and the details beside it."
+  },
+  "Spotlight": {
+    "view": "View game",
+    "favorite": "Add to favorites",
+    "featured": "Featured"
+  },
+  "Library": {
+    "title": "The library",
+    "count": "{total, plural, one {# title} other {# titles}}",
+    "filteredCount": "{shown, number} of {total, plural, one {# title} other {# titles}}",
+    "search": "Search",
+    "searchLabel": "Search by title",
+    "platform": "Platform",
+    "all": "All",
+    "genre": "Genre",
+    "clear": "Clear",
+    "empty": "No titles match. Clear a filter to see more.",
+    "loading": "Loading the library…",
+    "more": "Show {count, number} more",
+    "card": "{title}, {platforms}"
+  },
+  "Genres": {
+    "Action": "Action",
+    "Adventure": "Adventure",
+    "RPG": "RPG",
+    "Shooter": "Shooter",
+    "Racing": "Racing",
+    "Horror": "Horror",
+    "Simulation": "Simulation",
+    "Strategy": "Strategy",
+    "Sport": "Sport",
+    "Sports": "Sports",
+    "Indie": "Indie",
+    "Fighting": "Fighting",
+    "Puzzle": "Puzzle",
+    "Casual": "Casual",
+    "Family": "Family",
+    "Party": "Party",
+    "Arcade": "Arcade",
+    "MusicRhythm": "Music/Rhythm",
+    "BrainTraining": "Brain Training",
+    "Educational": "Educational",
+    "BoardGame": "Board Game",
+    "Quiz": "Quiz"
+  },
+  "Install": {
+    "title": "Install it in three steps.",
+    "lede": "Overdrive is a PS5 app like any other once it is on the console: no PC in the room after this.",
+    "step1Title": "Start a homebrew session",
+    "step1Detail": "A PS5 running a homebrew loader, with an ELF loader listening for payloads.",
+    "step2Title": "Copy the app to the console",
+    "step2Detail": "Put the Overdrive folder here:",
+    "step3Title": "Register it with ShadowMountPlus",
+    "step3Detail": "Overdrive then sits on the home screen like any game.",
+    "copy": "Copy",
+    "copied": "Copied"
+  },
+  "Footer": {
+    "disclaimer": "A personal homebrew project. Not affiliated with or endorsed by Sony Interactive Entertainment. PlayStation, PS4 and PS5 are trademarks of their owners; game art belongs to its publishers."
+  }
+}

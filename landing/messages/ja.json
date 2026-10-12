@@ -1,0 +1,98 @@
+{
+  "Metadata": {
+    "title": "Overdrive：PS5 のゲームライブラリ",
+    "description": "Overdrive はコンソール上で動作する PS5 ホームブリューです：コントローラーで閲覧するゲームライブラリで、システムストアのフォーカス、アート、ペースを備えています。PS4 と PS5 のカタログとインストール方法をご覧ください。",
+    "ogAlt": "暗い部屋のテレビ上の Overdrive のホーム画面、隣に「PS5 と同じ感覚で選べる、ゲームライブラリ」という文字"
+  },
+  "Nav": {
+    "sections": "セクション",
+    "footer": "フッター",
+    "tour": "ツアー",
+    "library": "ライブラリ",
+    "install": "導入",
+    "backToTop": "トップに戻る",
+    "home": "Overdrive ホーム",
+    "homeFooter": "Overdrive、トップに戻る",
+    "language": "言語"
+  },
+  "Hero": {
+    "title": "PS5 と同じ感覚で選べる、ゲームライブラリ。",
+    "lede": "Overdrive はコンソール上で動作するホームブリューです。コントローラーでライブラリを移動でき、システムストアのフォーカス、アート、ペースを備えています。",
+    "install": "インストール方法",
+    "library": "完全なライブラリ",
+    "shotAlt": "テレビ上の Overdrive のホーム画面：Days Gone がスポットライトで、その横に 5 つのおすすめゲーム、下に「今人気」。"
+  },
+  "Tour": {
+    "label": "ツアー",
+    "homeTitle": "ホーム画面が動作中。",
+    "homeBody": "5 つのピックが 7 秒ごとに交代し、コンソール上のように表示されます。1 つを指して固定できます。",
+    "gridTitle": "6 個ずつ 1 列、スティックを保持する速さで。",
+    "gridBody": "カバーがフォーカスの前で読み込まれ、取得後はコンソールに留まるため、ライブラリを戻るのは瞬時です。",
+    "gridAlt": "コンソール上のライブラリグリッド：フォーカス中のカード、カバーにその PS5 タグ。",
+    "filtersTitle": "すべてのフィルターが見つかるものを示します。",
+    "filtersBody": "プラットフォーム、ジャンル、機能、リリース、サイズ。各オプションが見つかるゲーム数を表示し、ゼロ個を残すものは表示されません。",
+    "filtersAlt": "フィルターパネル：PS5 と PS4 のタイルと件数、ジャンルのボタン。RPG を選択中で、パズルと格闘は 0 件のため薄く表示。",
+    "pageTitle": "すべてのゲームに 1 ページ。",
+    "pageBody": "アート、詳細、スクリーンショット、各々は押すと全画面表示。",
+    "pageAlt": "テレビ上の Cyberpunk 2077 のページ：ギャラリーで開いているスクリーンショット、その下にサムネイル、その横に詳細。"
+  },
+  "Spotlight": {
+    "view": "ゲームを表示",
+    "favorite": "お気に入りに追加",
+    "featured": "おすすめ"
+  },
+  "Library": {
+    "title": "ライブラリ",
+    "count": "{total, plural, other {# タイトル}}",
+    "filteredCount": "{shown, number} / {total, plural, other {# タイトル}}",
+    "search": "検索",
+    "searchLabel": "タイトルで検索",
+    "platform": "プラットフォーム",
+    "all": "すべて",
+    "genre": "ジャンル",
+    "clear": "クリア",
+    "empty": "一致するタイトルがありません。フィルターをクリアしてもっと見る。",
+    "loading": "ライブラリを読み込み中…",
+    "more": "さらに {count, number} 件を表示",
+    "card": "{title}、{platforms}"
+  },
+  "Genres": {
+    "Action": "アクション",
+    "Adventure": "アドベンチャー",
+    "RPG": "RPG",
+    "Shooter": "シューター",
+    "Racing": "レーシング",
+    "Horror": "ホラー",
+    "Simulation": "シミュレーション",
+    "Strategy": "ストラテジー",
+    "Sport": "スポーツ",
+    "Sports": "スポーツ",
+    "Indie": "インディ",
+    "Fighting": "ファイティング",
+    "Puzzle": "パズル",
+    "Casual": "カジュアル",
+    "Family": "ファミリー",
+    "Party": "パーティー",
+    "Arcade": "アーケード",
+    "MusicRhythm": "音楽/リズム",
+    "BrainTraining": "脳トレ",
+    "Educational": "教育",
+    "BoardGame": "ボードゲーム",
+    "Quiz": "クイズ"
+  },
+  "Install": {
+    "title": "3 ステップでインストール。",
+    "lede": "Overdrive がコンソール上にあると、他のすべての PS5 アプリと同じになります：その後、部屋に PC は不要です。",
+    "step1Title": "ホームブリューセッションを開始",
+    "step1Detail": "ホームブリューローダーを実行している PS5、ELF ローダーがペイロードをリッスンしている。",
+    "step2Title": "アプリをコンソールにコピー",
+    "step2Detail": "Overdrive フォルダをここに配置します：",
+    "step3Title": "ShadowMountPlus に登録",
+    "step3Detail": "Overdrive はその後、任意のゲームのようにホーム画面に表示されます。",
+    "copy": "コピー",
+    "copied": "コピーしました"
+  },
+  "Footer": {
+    "disclaimer": "個人的なホームブリュープロジェクト。Sony Interactive Entertainment に関連なく、承認されていません。PlayStation、PS4、PS5 は所有者の商標です。ゲーム アートはそのパブリッシャーのものです。"
+  }
+}

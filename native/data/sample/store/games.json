@@ -1,0 +1,50 @@
+[
+  {
+    "id": "PPSA90001", "slug": "ppsa90001", "title": "Example Racer",
+    "shortDescription": "A fictional racing game for the example catalog.",
+    "about": "RACE\n\nDrive fictional cars on fictional tracks. This text exists only so the game page has something to show.\n\nCOMPETE\n\nOnline races with friends, in the example catalog only.",
+    "developer": "Example Studio", "publisher": "Example Publisher", "releaseDate": "2021-03-04",
+    "genres": ["Racing", "Sports"], "features": ["Single-player", "Online PvP", "DualSense Controller Support"],
+    "metacritic": 81, "recommendations": 1200, "ageRating": null, "screenshots": [], "images": {}, "sizeGb": 12
+  },
+  {
+    "id": "PPSA90002", "slug": "ppsa90002", "title": "Example Quest",
+    "shortDescription": "A fictional role-playing game whose download is a password-protected RAR set.",
+    "about": "Explore a fictional world. Its download is a three-volume RAR set with the archive password fixture-password.",
+    "developer": "Example Studio", "publisher": "Example Publisher", "releaseDate": "2022-08-19",
+    "genres": ["RPG", "Adventure"], "features": ["Single-player", "Steam Cloud"],
+    "metacritic": 74, "recommendations": 860, "ageRating": null, "screenshots": [], "images": {}, "sizeGb": 30
+  },
+  {
+    "id": "PPSA90003", "slug": "ppsa90003", "title": "Example Arena",
+    "shortDescription": "A fictional fighting game reached through a host page that opens in the browser.",
+    "about": "Fight in a fictional arena. Its only source is a page that needs the browser.",
+    "developer": "Example Fighters", "publisher": "Example Publisher", "releaseDate": "2023-11-02",
+    "genres": ["Action"], "features": ["Online PvP", "Co-op", "Cross-Platform Multiplayer"],
+    "metacritic": null, "recommendations": 140, "ageRating": null, "screenshots": [], "images": {}, "sizeGb": 48
+  },
+  {
+    "id": "PPSA90004", "slug": "ppsa90004", "title": "Example Tactics",
+    "shortDescription": "A fictional strategy game with one working link and one the audit found dead.",
+    "about": "Plan fictional battles. The link audit marks one of its two links dead, and the build leaves that one out.",
+    "developer": "Example Strategy", "publisher": "Example Publisher", "releaseDate": "2020-05-21",
+    "genres": ["Strategy"], "features": ["Single-player"],
+    "metacritic": 69, "recommendations": 300, "ageRating": null, "screenshots": [], "images": {}, "sizeGb": 6
+  },
+  {
+    "id": "CUSA90005", "slug": "cusa90005", "title": "Example Puzzle",
+    "shortDescription": "A fictional PS4 puzzle game.",
+    "about": "Solve fictional puzzles on PS4.",
+    "developer": "Example Puzzles", "publisher": "Example Publisher", "releaseDate": "2018-02-14",
+    "genres": ["Puzzle", "Indie"], "features": ["Single-player"],
+    "metacritic": null, "recommendations": 45, "ageRating": null, "screenshots": [], "images": {}, "sizeGb": 1.5
+  },
+  {
+    "id": "PPSA90008", "slug": "ppsa90008", "title": "Example Lost",
+    "shortDescription": "A fictional game whose only link is dead, so the build drops it.",
+    "about": "Nothing to download here.",
+    "developer": "Example Studio", "publisher": "Example Publisher", "releaseDate": "2019-09-09",
+    "genres": ["Action"], "features": [],
+    "metacritic": null, "recommendations": 0, "ageRating": null, "screenshots": [], "images": {}, "sizeGb": 2
+  }
+]

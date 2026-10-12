@@ -1,0 +1,98 @@
+{
+  "Metadata": {
+    "title": "Overdrive: una biblioteca de juegos para PS5",
+    "description": "Overdrive es homebrew para PS5 que se ejecuta en la consola: una biblioteca de juegos que controlas con el mando, con el enfoque, diseño y ritmo de la tienda del sistema. Explora el catálogo de PS4 y PS5 y cómo instalarlo.",
+    "ogAlt": "Pantalla de inicio de Overdrive en un televisor en una habitación oscura, junto a la frase \"Una biblioteca de juegos que se recorre como en tu PS5.\""
+  },
+  "Nav": {
+    "sections": "Secciones",
+    "footer": "Pie de página",
+    "tour": "Tour",
+    "library": "Biblioteca",
+    "install": "Instalar",
+    "backToTop": "Volver arriba",
+    "home": "Inicio Overdrive",
+    "homeFooter": "Overdrive, volver arriba",
+    "language": "Idioma"
+  },
+  "Hero": {
+    "title": "Una biblioteca de juegos que se recorre como en tu PS5.",
+    "lede": "Overdrive es homebrew que se ejecuta en la consola. Navega la biblioteca con el mando, con el enfoque, diseño y ritmo de la tienda del sistema.",
+    "install": "Cómo instalar",
+    "library": "La biblioteca completa",
+    "shotAlt": "Pantalla de inicio de Overdrive en el TV: Days Gone en el destaque, cinco juegos destacados junto a él, Popular ahora abajo."
+  },
+  "Tour": {
+    "label": "Tour",
+    "homeTitle": "La pantalla de inicio, en vivo.",
+    "homeBody": "Cinco recomendaciones se alternan cada siete segundos, como en la consola. Apunta a una para mantenerla ahí.",
+    "gridTitle": "Seis por fila, tan rápido como mantengas el stick.",
+    "gridBody": "Las portadas se cargan antes del enfoque y permanecen en la consola una vez descargadas, así que volver atrás en la biblioteca es instantáneo.",
+    "gridAlt": "La cuadrícula de la biblioteca en la consola: una tarjeta enfocada, su etiqueta PS5 en la portada.",
+    "filtersTitle": "Cada filtro dice qué encontrará.",
+    "filtersBody": "Plataforma, género, características, lanzamiento, tamaño. Cada opción muestra cuántos juegos quedarían, y los que dejarían cero se atenúan.",
+    "filtersAlt": "Panel de filtros: tarjetas PS5 y PS4 con sus conteos, píldoras de género, RPG seleccionado, Puzzle y Fighting atenuados en cero.",
+    "pageTitle": "Una página para cada juego.",
+    "pageBody": "Arte, detalles y capturas, cada una a pantalla completa con un botón.",
+    "pageAlt": "Página de Cyberpunk 2077 en el TV: una captura abierta en la galería, sus miniaturas debajo y los detalles al lado."
+  },
+  "Spotlight": {
+    "view": "Ver juego",
+    "favorite": "Añadir a favoritos",
+    "featured": "Destacado"
+  },
+  "Library": {
+    "title": "La biblioteca",
+    "count": "{total, plural, one {# título} other {# títulos}}",
+    "filteredCount": "{shown, number} de {total, plural, one {# título} other {# títulos}}",
+    "search": "Buscar",
+    "searchLabel": "Buscar por título",
+    "platform": "Plataforma",
+    "all": "Todo",
+    "genre": "Género",
+    "clear": "Limpiar",
+    "empty": "Sin títulos que coincidan. Limpia un filtro para ver más.",
+    "loading": "Cargando la biblioteca…",
+    "more": "Mostrar {count, number} más",
+    "card": "{title}, {platforms}"
+  },
+  "Genres": {
+    "Action": "Acción",
+    "Adventure": "Aventura",
+    "RPG": "RPG",
+    "Shooter": "Disparos",
+    "Racing": "Carreras",
+    "Horror": "Terror",
+    "Simulation": "Simulación",
+    "Strategy": "Estrategia",
+    "Sport": "Deporte",
+    "Sports": "Deportes",
+    "Indie": "Indie",
+    "Fighting": "Luchas",
+    "Puzzle": "Puzle",
+    "Casual": "Casual",
+    "Family": "Familiar",
+    "Party": "Fiesta",
+    "Arcade": "Arcade",
+    "MusicRhythm": "Música/Ritmo",
+    "BrainTraining": "Entrenamiento cerebral",
+    "Educational": "Educativo",
+    "BoardGame": "Juego de mesa",
+    "Quiz": "Trivial"
+  },
+  "Install": {
+    "title": "Instálalo en tres pasos.",
+    "lede": "Overdrive es una app de PS5 como cualquier otra una vez está en la consola: no necesitas PC después de esto.",
+    "step1Title": "Inicia una sesión de homebrew",
+    "step1Detail": "Una PS5 ejecutando un cargador de homebrew, con un ELF loader escuchando payloads.",
+    "step2Title": "Copia la app a la consola",
+    "step2Detail": "Coloca la carpeta Overdrive aquí:",
+    "step3Title": "Regístrala con ShadowMountPlus",
+    "step3Detail": "Overdrive aparece en la pantalla de inicio como cualquier juego.",
+    "copy": "Copiar",
+    "copied": "Copiado"
+  },
+  "Footer": {
+    "disclaimer": "Un proyecto personal de homebrew. No afiliado ni respaldado por Sony Interactive Entertainment. PlayStation, PS4 y PS5 son marcas registradas de sus propietarios; las imágenes de juegos pertenecen a sus desarrolladores."
+  }
+}

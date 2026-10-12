@@ -1,0 +1,98 @@
+{
+  "Metadata": {
+    "title": "Overdrive: perpustakaan game untuk PS5",
+    "description": "Overdrive adalah homebrew PS5 yang berjalan di konsol itu sendiri: perpustakaan game yang Anda jelajahi dengan pengontrol, dengan fokus, seni, dan kecepatan toko sistem. Lihat katalog PS4 dan PS5 dan cara menginstalnya.",
+    "ogAlt": "Layar beranda Overdrive di TV di ruangan gelap, di samping garis \"Pustaka game yang dijelajahi seperti di PS5 Anda.\""
+  },
+  "Nav": {
+    "sections": "Bagian",
+    "footer": "Catatan Kaki",
+    "tour": "Tur",
+    "library": "Pustaka",
+    "install": "Pasang",
+    "backToTop": "Kembali ke atas",
+    "home": "Rumah Overdrive",
+    "homeFooter": "Overdrive, kembali ke atas",
+    "language": "Bahasa"
+  },
+  "Hero": {
+    "title": "Pustaka game yang dijelajahi seperti di PS5 Anda.",
+    "lede": "Overdrive adalah homebrew yang berjalan di konsol itu sendiri. Bergeraklah melalui perpustakaan dengan pengontrol, dengan fokus, seni, dan kecepatan toko sistem.",
+    "install": "Cara memasang",
+    "library": "Perpustakaan lengkap",
+    "shotAlt": "Layar beranda Overdrive di TV: Days Gone dalam sorotan, lima game unggulan di sampingnya, Populer sekarang di bawah."
+  },
+  "Tour": {
+    "label": "Tur",
+    "homeTitle": "Layar beranda, berjalan.",
+    "homeBody": "Lima pilihan bergantian setiap tujuh detik, seperti halnya di konsol. Arahkan ke salah satu untuk mempertahankannya di sana.",
+    "gridTitle": "Enam per baris, secepat Anda memegang stik.",
+    "gridBody": "Sampul dimuat sebelum fokus dan tetap di konsol setelah diambil, jadi kembali melalui perpustakaan seketika.",
+    "gridAlt": "Kisi perpustakaan di konsol: kartu dalam fokus, tag PS5-nya di sampul.",
+    "filtersTitle": "Setiap filter mengatakan apa yang akan ditemukan.",
+    "filtersBody": "Platform, genre, fitur, rilis, ukuran. Setiap opsi menunjukkan berapa banyak game yang tersisa, dan yang tidak akan meninggalkan apa pun mundur.",
+    "filtersAlt": "Panel filter: ubin PS5 dan PS4 dengan hitungannya, pil genre, RPG dipilih, Puzzle dan Fighting redup di nol.",
+    "pageTitle": "Sebuah halaman untuk setiap game.",
+    "pageBody": "Seni, detail, dan tangkapan layar, masing-masing layar penuh dengan sentuhan.",
+    "pageAlt": "Halaman Cyberpunk 2077 di TV: tangkapan layar terbuka di galeri, thumbnailnya di bawah dan detail di sampingnya."
+  },
+  "Spotlight": {
+    "view": "Lihat game",
+    "favorite": "Tambah ke favorit",
+    "featured": "Unggulan"
+  },
+  "Library": {
+    "title": "Perpustakaan",
+    "count": "{total, plural, other {# judul}}",
+    "filteredCount": "{shown, number} dari {total, plural, other {# judul}}",
+    "search": "Cari",
+    "searchLabel": "Cari berdasarkan judul",
+    "platform": "Platform",
+    "all": "Semua",
+    "genre": "Genre",
+    "clear": "Hapus",
+    "empty": "Tidak ada judul yang cocok. Hapus filter untuk melihat lebih banyak.",
+    "loading": "Memuat perpustakaan…",
+    "more": "Tampilkan {count, number} lagi",
+    "card": "{title}, {platforms}"
+  },
+  "Genres": {
+    "Action": "Aksi",
+    "Adventure": "Petualangan",
+    "RPG": "RPG",
+    "Shooter": "Penembak",
+    "Racing": "Balapan",
+    "Horror": "Horor",
+    "Simulation": "Simulasi",
+    "Strategy": "Strategi",
+    "Sport": "Olahraga",
+    "Sports": "Olahraga",
+    "Indie": "Indie",
+    "Fighting": "Pertarungan",
+    "Puzzle": "Teka-teki",
+    "Casual": "Santai",
+    "Family": "Keluarga",
+    "Party": "Pesta",
+    "Arcade": "Arkade",
+    "MusicRhythm": "Musik/Ritme",
+    "BrainTraining": "Pelatihan Otak",
+    "Educational": "Pendidikan",
+    "BoardGame": "Permainan Papan",
+    "Quiz": "Kuis"
+  },
+  "Install": {
+    "title": "Pasang dalam tiga langkah.",
+    "lede": "Overdrive adalah aplikasi PS5 seperti aplikasi lain setelah berada di konsol: tidak ada PC di ruangan setelahnya.",
+    "step1Title": "Mulai sesi homebrew",
+    "step1Detail": "PS5 menjalankan homebrew loader, dengan ELF loader mendengarkan payloads.",
+    "step2Title": "Salin aplikasi ke konsol",
+    "step2Detail": "Letakkan folder Overdrive di sini:",
+    "step3Title": "Daftarkan dengan ShadowMountPlus",
+    "step3Detail": "Overdrive kemudian duduk di layar beranda seperti game mana pun.",
+    "copy": "Salin",
+    "copied": "Tersalin"
+  },
+  "Footer": {
+    "disclaimer": "Proyek homebrew pribadi. Tidak berafiliasi dengan atau disetujui oleh Sony Interactive Entertainment. PlayStation, PS4, dan PS5 adalah merek dagang pemiliknya; seni game milik penerbitnya."
+  }
+}

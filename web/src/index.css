@@ -1,0 +1,183 @@
+@import "tailwindcss";
+@import "@fontsource-variable/geist";
+
+@theme {
+  --font-sans: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+
+  --color-canvas: #0d0d0f;
+  --color-surface: #17171a;
+  --color-surface-2: #212125;
+  --color-line: #2a2a2f;
+  --color-fg: #f2f2f3;
+  --color-muted: #a3a3ab;
+  --color-subtle: #8a8a94;
+
+  /* Primária monocromática: CTA e selo de desconto em branco com texto escuro */
+  --color-accent: #f2f2f3;
+  --color-accent-hover: #ffffff;
+  --color-accent-fg: #0d0d0f;
+}
+
+/* Um só anel de foco no sistema inteiro */
+:root {
+  --ring: 0.09rem;
+  --ring-offset: 0.1875rem;
+}
+
+@layer base {
+  /* TV: escala pela altura (1rem = 24px em 1080p, igual em qualquer TV 16:9, inclusive 4K).
+     Em telas proporcionalmente mais largas sobra largura lógica, e as grades mostram mais itens. */
+  html {
+    font-size: max(10px, min(100vw / 80, 100vh / 45));
+    color-scheme: dark;
+    scrollbar-color: var(--color-surface-2) var(--color-canvas);
+    caret-color: var(--color-accent);
+  }
+  body {
+    @apply bg-canvas font-sans text-fg antialiased;
+  }
+  h1, h2, h3 {
+    text-wrap: balance;
+  }
+  ::selection {
+    background: var(--color-accent);
+    color: var(--color-accent-fg);
+  }
+  :focus {
+    outline: none;
+  }
+  /* Contorno fino que pulsa de leve, no mesmo ritmo do quadro de foco dos tiles */
+  :focus-visible {
+    outline: var(--ring) solid rgb(255 255 255 / 0.92);
+    outline-offset: var(--ring-offset);
+    animation: ring-breathe 2.8s ease-in-out infinite;
+  }
+  @keyframes ring-breathe {
+    50% { outline-color: rgb(255 255 255 / 0.55); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :focus-visible {
+      animation: none;
+    }
+  }
+  /* Espaço para o elemento focado não parar embaixo do cabeçalho fixo */
+  [data-nav] {
+    scroll-margin: 6rem 0 3rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility scrollbar-none {
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@keyframes progress-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Reflexo sutil que atravessa o item em foco de tempos em tempos */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+.shine::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    115deg,
+    transparent 30%,
+    rgb(255 255 255 / 0.02) 40%,
+    rgb(255 255 255 / 0.065) 50%,
+    rgb(255 255 255 / 0.02) 60%,
+    transparent 70%
+  );
+  transform: translateX(-70%);
+}
+/* O feixe parte logo da borda e sem atraso: aparece assim que o item ganha foco, depois repete com calma */
+:is([data-nav]:focus-visible .shine, .shine[data-nav]:focus-visible)::after {
+  animation: shine-sweep 5s cubic-bezier(0.4, 0, 0.3, 1) infinite;
+}
+@keyframes shine-sweep {
+  0% { transform: translateX(-70%); }
+  32%, 100% { transform: translateX(70%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .shine::after {
+    display: none;
+  }
+}
+
+/* Quadro de foco à la PS5: filete branco fino colado na borda e um brilho em volta que respira devagar */
+.focus-frame {
+  transition:
+    scale 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 300ms cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 200ms;
+}
+:is([data-nav]:focus-visible .focus-frame, .focus-frame[data-nav]:focus-visible) {
+  outline: none;
+  box-shadow:
+    0 0 0 0.09rem rgb(255 255 255 / 0.92),
+    0 0 1.75rem rgb(255 255 255 / 0.14),
+    0 1.25rem 2.5rem rgb(0 0 0 / 0.5);
+  animation: frame-breathe 2.8s ease-in-out infinite;
+}
+@keyframes frame-breathe {
+  0%, 100% {
+    box-shadow:
+      0 0 0 0.09rem rgb(255 255 255 / 0.92),
+      0 0 1.75rem rgb(255 255 255 / 0.14),
+      0 1.25rem 2.5rem rgb(0 0 0 / 0.5);
+  }
+  50% {
+    box-shadow:
+      0 0 0 0.09rem rgb(255 255 255 / 0.7),
+      0 0 1rem rgb(255 255 255 / 0.05),
+      0 1.25rem 2.5rem rgb(0 0 0 / 0.5);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  :is([data-nav]:focus-visible .focus-frame, .focus-frame[data-nav]:focus-visible) {
+    animation: none;
+  }
+}
+
+/* Troca de tela com a capa voando (coverMorph.ts): o resto da tela cruza rápido, a capa leva o tempo dela */
+::view-transition-old(root) {
+  animation: 150ms ease-out both vt-out;
+}
+::view-transition-new(root) {
+  animation: 260ms ease-out both vt-in;
+}
+::view-transition-group(game-cover) {
+  animation-duration: 460ms;
+  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+}
+::view-transition-old(game-cover),
+::view-transition-new(game-cover) {
+  height: 100%;
+  animation-duration: 460ms;
+  border-radius: 0.5rem;
+  overflow: clip;
+}
+@keyframes vt-out {
+  to { opacity: 0; }
+}
+@keyframes vt-in {
+  from { opacity: 0; }
+}

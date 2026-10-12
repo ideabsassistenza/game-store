@@ -1,0 +1,6 @@
+.art/
+data/catalog.js
+data/releases/
+data/pages/
+data/import-report.json
+data/prepare-report.json

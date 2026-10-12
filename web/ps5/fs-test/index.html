@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Teste tela cheia</title>
+<style>
+  html,body{margin:0;height:100%;background:#0d0d0f;color:#f2f2f3;font:28px system-ui,sans-serif}
+  main{height:100%;display:grid;place-items:center;text-align:center}
+  button{font:inherit;padding:28px 56px;border-radius:16px;border:0;background:#f2f2f3;color:#0d0d0f}
+  button:focus{outline:6px solid #fff;outline-offset:6px}
+  pre{font-size:20px;color:#a3a3ab;white-space:pre-wrap;max-width:80vw}
+</style></head>
+<body><main><div>
+  <h1>Teste de tela cheia</h1>
+  <button id="b" autofocus>Apertar X para tela cheia</button>
+  <pre id="log"></pre>
+</div></main>
+<script>
+  var log = document.getElementById('log');
+  function say(m){ log.textContent += m + '\n'; new Image().src = '/log?m=' + encodeURIComponent(m) + '&t=' + Date.now(); }
+  say('janela: ' + innerWidth + 'x' + innerHeight + ' | tela: ' + screen.width + 'x' + screen.height);
+  var de = document.documentElement;
+  var req = de.requestFullscreen || de.webkitRequestFullscreen || de.webkitRequestFullScreen;
+  say('API de tela cheia: ' + (req ? 'existe' : 'NAO existe') + ' | fullscreenEnabled: ' + (document.fullscreenEnabled || document.webkitFullscreenEnabled));
+  function go(){
+    if (!req) return say('sem API');
+    try {
+      var r = req.call(de);
+      if (r && r.then) r.then(function(){ say('OK: entrou em tela cheia'); }, function(e){ say('recusado: ' + e); });
+      else say('pedido enviado (sem promise)');
+    } catch(e){ say('erro: ' + e); }
+  }
+  document.getElementById('b').addEventListener('click', go);
+  document.addEventListener('keydown', function(e){ say('tecla: ' + e.key + ' (' + e.keyCode + ')'); if (e.key === 'Enter' || e.keyCode === 13) go(); });
+  document.addEventListener('fullscreenchange', function(){ say('fullscreenchange -> ' + (document.fullscreenElement ? 'TELA CHEIA' : 'janela') + ' ' + innerWidth + 'x' + innerHeight); });
+  document.addEventListener('webkitfullscreenchange', function(){ say('webkitfullscreenchange ' + innerWidth + 'x' + innerHeight); });
+  window.addEventListener('resize', function(){ say('resize ' + innerWidth + 'x' + innerHeight); });
+</script></body></html>
