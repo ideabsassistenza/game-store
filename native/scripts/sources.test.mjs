@@ -81,15 +81,15 @@ test('a link in sets of two games takes each set its own verdict', () => {
     set('PPSA22327', 'incomplete', ['1fichier.com/?f1', '1fichier.com/?k3', '1fichier.com/?f3']),
     set('PPSA20447', 'ok', ['1fichier.com/?k1', '1fichier.com/?k2', '1fichier.com/?k3']),
     // The Last of Us Part I's set is whole; two other games' sets with the same volume lost another one.
-    set('PPSA10662', 'gone', ['vikingfile.com/f/a1', 'vikingfile.com/f/50mhr9mMmZ', 'vikingfile.com/f/a3']),
-    set('PPSA03396', 'ok', ['vikingfile.com/f/t1', 'vikingfile.com/f/50mhr9mMmZ', 'vikingfile.com/f/t3']),
-    set('PPSA05684', 'gone', ['vikingfile.com/f/b1', 'vikingfile.com/f/b2', 'vikingfile.com/f/50mhr9mMmZ']),
+    set('PPSA10662', 'gone', ['vikingfile.com/f/a1', 'vikingfile.com/f/Ex4mpleVol3', 'vikingfile.com/f/a3']),
+    set('PPSA03396', 'ok', ['vikingfile.com/f/t1', 'vikingfile.com/f/Ex4mpleVol3', 'vikingfile.com/f/t3']),
+    set('PPSA05684', 'gone', ['vikingfile.com/f/b1', 'vikingfile.com/f/b2', 'vikingfile.com/f/Ex4mpleVol3']),
   ]);
   const release = id => ({provider: 'x', url: `https://${id}`});
   assert.equal(why(release('1fichier.com/?k3'), 'PPSA22327'), 'incomplete');
   assert.equal(why(release('1fichier.com/?k3'), 'PPSA20447'), null);
-  assert.equal(why(release('vikingfile.com/f/50mhr9mMmZ'), 'PPSA03396'), null);
-  assert.equal(why(release('vikingfile.com/f/50mhr9mMmZ'), 'PPSA10662'), 'dead');
+  assert.equal(why(release('vikingfile.com/f/Ex4mpleVol3'), 'PPSA03396'), null);
+  assert.equal(why(release('vikingfile.com/f/Ex4mpleVol3'), 'PPSA10662'), 'dead');
 });
 
 test('a set with only a full last volume against it is unproven, not incomplete', () => {
