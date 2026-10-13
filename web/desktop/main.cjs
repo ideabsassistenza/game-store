@@ -1,8 +1,9 @@
 const { app, BrowserWindow, ipcMain, dialog, shell } = require('electron');
 const fs = require('node:fs');
 const path = require('node:path');
+const { KytyLauncher, localCatalogEntry } = require('./kyty.cjs');
 const { normalizeCatalog, DownloadManager, readJson, writeJson } = require('./core.cjs');
-let win, manager, games = [], settings;
+let win, manager, kyty, games = [], settings;
 if (!app.requestSingleInstanceLock()) { app.quit(); } else {
   app.on('second-instance', () => { win?.show(); win?.focus(); });
   app.whenReady().then(() => {
@@ -17,6 +18,7 @@ if (!app.requestSingleInstanceLock()) { app.quit(); } else {
     win.webContents.on('will-navigate', (event, url) => { if (url.split('#')[0] !== win.webContents.getURL().split('#')[0]) event.preventDefault(); });
     win.webContents.session.setPermissionRequestHandler((_wc, _p, callback) => callback(false));
     manager = new DownloadManager(path.join(data, 'downloads.json'), rows => { if (win && !win.isDestroyed()) win.webContents.send('overdrive:progress', rows); });
+    kyty = new KytyLauncher(path.join(data, 'kyty.json'), { onChange: state => { if (win && !win.isDestroyed()) win.webContents.send('overdrive:kyty-progress', state); } });
     const handle = (name, fn) => ipcMain.handle(`overdrive:${name}`, (event, ...args) => {
       if (event.sender !== win.webContents || event.senderFrame !== win.webContents.mainFrame) throw new Error('Unknown sender.');
       return fn(...args);
@@ -29,6 +31,28 @@ if (!app.requestSingleInstanceLock()) { app.quit(); } else {
       const next = normalizeCatalog(JSON.parse(fs.readFileSync(picked.filePaths[0], 'utf8')));
       writeJson(catalogFile, next); games = next; return true;
     });
+    const pickGame = async kind => {
+      if (!['folder', 'zar'].includes(kind)) throw new Error('Choose folder or ZArchive.');
+      const picked = await dialog.showOpenDialog(win, { title: kind === 'folder' ? 'Select game root containing eboot.bin' : 'Select PS5 ZArchive dump', properties: [kind === 'folder' ? 'openDirectory' : 'openFile'], ...(kind === 'zar' ? { filters: [{ name: 'ZArchive', extensions: ['zar'] }] } : {}) });
+      return picked.canceled ? null : picked.filePaths[0];
+    };
+    handle('kyty-state', () => kyty.snapshot());
+    handle('kyty-configure', async () => {
+      const picked = await dialog.showOpenDialog(win, { title: 'Choose kyty_emulator.exe', properties: ['openFile'], filters: [{ name: 'KytyPS5 emulator', extensions: ['exe'] }] });
+      return picked.canceled ? kyty.snapshot() : kyty.configure(picked.filePaths[0]);
+    });
+    handle('local-game', async kind => {
+      const target = await pickGame(kind); if (!target) return false;
+      const game = normalizeCatalog([localCatalogEntry(target)])[0];
+      kyty.link(game, target);
+      const next = games.filter(g => g.id !== game.id).concat(game);
+      writeJson(catalogFile, next); games = next; return true;
+    });
+    handle('kyty-link', async (id, kind) => {
+      const game = games.find(g => g.id === id); if (!game) throw new Error('Game is not in your catalog.');
+      const target = await pickGame(kind); return target ? kyty.link(game, target) : kyty.snapshot();
+    });
+    handle('kyty-launch', id => { const game = games.find(g => g.id === id); if (!game) throw new Error('Game is not in your catalog.'); return kyty.launch(game); });
     handle('settings', () => settings);
     handle('folder', async () => {
       if (manager.active.size) throw new Error('Finish or cancel active downloads before changing folders.');

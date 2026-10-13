@@ -10,6 +10,7 @@ import { genresOf, storageGb, type Game } from '../../lib/catalog'
 import { sound } from '../../lib/sound'
 import { goBack } from '../../lib/spatialNav'
 import { toggleWishlist, useWishlist } from '../../lib/wishlist'
+import { KytyActions } from './KytyActions'
 import { DownloadButton } from './DownloadButton'
 
 const EASE = [0.16, 1, 0.3, 1] as const
@@ -103,6 +104,7 @@ export function GameHero({ game }: { game: Game }) {
               {/* Real desktop download: focus starts on this action */}
               <div className="w-[17rem]">
                 <DownloadButton game={game} sizeGb={storageGb(game)} label="Download" onInstalled={onInstalled} />
+                <KytyActions game={game} />
               </div>
               <Button variant="outline" size="lg" className="bg-canvas/40 backdrop-blur" aria-pressed={wished} onClick={() => toggleWishlist(game.id)}>
                 <WishHeart active={wished} />

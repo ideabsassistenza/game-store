@@ -1,12 +1,25 @@
-# Overdrive Windows 0.1.0 preview
+# KytyPS5 integration quick start
+
+1. Install and extract the official Windows KytyPS5 release from https://github.com/KytyPS5/KytyPS5/releases. Keep its complete installation, DLLs and other dependencies together.
+2. In Overdrive, choose **Set up KytyPS5** and select `kyty_emulator.exe`, not `launcher.exe`.
+3. Choose **Add local game folder** and select the game root containing `eboot.bin`, or **Add ZArchive game** for a `.zar` dump. This adds a card even without an imported catalog.
+4. Open the card and press **Play with KytyPS5**. For an existing catalog card, use **Link game folder** or **Link .zar dump** first.
+
+The adapter uses the official `kyty_emulator.exe --game <path>` interface, with the emulator installation as the working directory. ZIP/RAR/PKG and exFAT image files are not direct launch targets in this integration. A `.zar` must be a valid ZArchive with the required game layout; Kyty performs content validation. PS4 catalog entries and CUSA metadata are blocked by this PS5 adapter.
+
+Kyty installation and game associations persist in `kyty.json`. The last launch records status, exit code and up to 16 KB of emulator output. A spawned process is shown as running, not as proven playable. Keep Overdrive open while using this integration. On app restart a previously running launch is shown as unknown. Existing imported catalog and download history are preserved. The official PS5 release's bundled catalog has not been converted or added by this update.
+
+Automated adapter tests use process doubles and fixtures, not commercial game execution. Actual Kyty game launches, performance and hardware compatibility require Windows testing. Reference: https://github.com/KytyPS5/KytyPS5#running.
+
+# Overdrive Windows 0.2.0 preview
 
 A standalone Windows x64 adaptation of Overdrive's React storefront. It reuses the upstream visual design, artwork views, search, genre filters, favorites and keyboard navigation. A new Electron host performs real file downloads. OmniPC is not required.
 
 ## Start
 
-Extract the complete `Overdrive-Windows-0.1.0-x64.zip` into a folder, then run `Overdrive Windows.exe`. Keep the DLLs and resources beside the executable. This preview is unsigned.
+Extract the complete `Overdrive-Windows-0.2.0-x64.zip` into a folder, then run `Overdrive Windows.exe`. Keep the DLLs and resources beside the executable. This preview is unsigned.
 
-The storefront starts empty because the original Overdrive catalog is private and excluded from the public source. No subscription, account or PS5 is needed for this app. It does not emulate or launch games.
+The storefront starts empty because the original Overdrive catalog is private and excluded from the public source. No subscription, account or PS5 is needed for this app. It launches local PS5 game dumps through your separately installed KytyPS5. It does not bundle an emulator.
 
 Choose **Import catalog** and select a JSON file. The catalog is copied into your local app data and loaded on subsequent launches. Choose **Download folder** to set where files go. Open a game and press **Download file**. Download history provides cancellation, retry and **Show file**.
 
